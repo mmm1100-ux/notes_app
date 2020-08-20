@@ -28,10 +28,10 @@ class _$NoteSerializer implements StructuredSerializer<Note> {
           specifiedType: const FullType(String)),
       'createDateTime',
       serializers.serialize(object.createdAt,
-          specifiedType: const FullType(String)),
+          specifiedType: const FullType(DateTime)),
       'latestEditDateTime',
       serializers.serialize(object.updatedAt,
-          specifiedType: const FullType(String)),
+          specifiedType: const FullType(DateTime)),
     ];
 
     return result;
@@ -62,11 +62,11 @@ class _$NoteSerializer implements StructuredSerializer<Note> {
           break;
         case 'createDateTime':
           result.createdAt = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(DateTime)) as DateTime;
           break;
         case 'latestEditDateTime':
           result.updatedAt = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(DateTime)) as DateTime;
           break;
       }
     }
@@ -83,9 +83,9 @@ class _$Note extends Note {
   @override
   final String description;
   @override
-  final String createdAt;
+  final DateTime createdAt;
   @override
-  final String updatedAt;
+  final DateTime updatedAt;
 
   factory _$Note([void Function(NoteBuilder) updates]) =>
       (new NoteBuilder()..update(updates)).build();
@@ -163,13 +163,13 @@ class NoteBuilder implements Builder<Note, NoteBuilder> {
   String get description => _$this._description;
   set description(String description) => _$this._description = description;
 
-  String _createdAt;
-  String get createdAt => _$this._createdAt;
-  set createdAt(String createdAt) => _$this._createdAt = createdAt;
+  DateTime _createdAt;
+  DateTime get createdAt => _$this._createdAt;
+  set createdAt(DateTime createdAt) => _$this._createdAt = createdAt;
 
-  String _updatedAt;
-  String get updatedAt => _$this._updatedAt;
-  set updatedAt(String updatedAt) => _$this._updatedAt = updatedAt;
+  DateTime _updatedAt;
+  DateTime get updatedAt => _$this._updatedAt;
+  set updatedAt(DateTime updatedAt) => _$this._updatedAt = updatedAt;
 
   NoteBuilder();
 

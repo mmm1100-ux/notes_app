@@ -12,9 +12,9 @@ abstract class Note implements Built<Note, NoteBuilder> {
   @BuiltValueField(wireName: "noteContent")
   String get description;
   @BuiltValueField(wireName: "createDateTime")
-  String get createdAt;
+  DateTime get createdAt;
   @BuiltValueField(wireName: "latestEditDateTime")
-  String get updatedAt;
+  DateTime get updatedAt;
   Note._();
   factory Note([updates(NoteBuilder b)]) = _$Note;
   static Serializer<Note> get serializer => _$noteSerializer;
